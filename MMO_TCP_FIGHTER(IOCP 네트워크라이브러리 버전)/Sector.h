@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef __SECTOR_H__
 #define	__SECTOR_H__
 #include <map>
@@ -47,8 +47,7 @@ void SendSectorAround(CharacterInfo* ptrCharac, const SerializationBuffer& sendP
 void GetSectorAround(SectorPos findPos, SectorAround* pSectorAround, bool includeFindSector = true);
 void CharacterSectorUpdatePacket(CharacterInfo* ptrCharac);
 
-void SendToMeOfSectorAroundCharacterInfo(CharacterInfo* ptrCharac);
-//³»Á¤º¸¸¦ ÁÖº¯¿¡ »Ñ¸®°í, »ó´ëÁ¤º¸¸¦ ³ª¿¡°Ô »Ñ¸°´Ù.
+//ë‚´ì •ë³´ë¥¼ ì£¼ë³€ì— ë¿Œë¦¬ê³ , ìƒëŒ€ì •ë³´ë¥¼ ë‚˜ì—ê²Œ ë¿Œë¦°ë‹¤.
 //void SendPacketByAcceptEvent(CharacterInfo* ptrCharac, const char* buf, int size);
 void SendPacketByAcceptEvent(CharacterInfo* ptrCharac, const SerializationBuffer& myCharacInfoPacket);
 
