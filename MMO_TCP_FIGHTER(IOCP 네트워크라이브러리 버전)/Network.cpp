@@ -536,7 +536,8 @@ void PostSendForSendPacket(Session* ptrSession)
 	else
 	{
 		InterlockedExchange((LONG*)&ptrSession->waitSend, false);
-		InterlockedDecrement((LONG*)&ptrSession->overlappedIOCnt);
+		//InterlockedDecrement((LONG*)&ptrSession->overlappedIOCnt);
+		PostQueuedCompletionStatus(hIOCP, -5, ptrSession->sessionID, (LPOVERLAPPED)&ptrSession->sendOverlapped);
 		return;
 	}
 
@@ -746,7 +747,7 @@ unsigned WINAPI IOCPWorkerThread(LPVOID args)
 				goto FIN_COMPLETION_IO_PROCESS;
 			}
 
-			OnRecvBefore(sessionID);
+			//OnRecvBefore(sessionID);
 
 			ptrRecvRingBuffer = &ptrSession->recvRingBuffer;
 			ptrRecvRingBuffer->MoveRear(numberOfBytesTransferred);
