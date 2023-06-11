@@ -26,7 +26,8 @@ void Monitoring()
 		if (printCnt == 11)
 		{
 			printCnt = 0;
-			_Log(dfLOG_LEVEL_SYSTEM, "FPS: %d, Loop: %lld, Session Count: %lld, Character Count: %lld, Sector Character Count: %lld", fps, loopCnt, GetSessionCnt(), GetCharacterCnt(), GetSectorCharacterCnt());
+			_Log(dfLOG_LEVEL_SYSTEM, "FPS: %d, Loop: %lld, Session Count: %lld, Character Count: %lld, Sector Character Count: %lld"
+				, fps, loopCnt, GetSessionCnt(), GetCharacterCnt(), GetSectorCharacterCnt());
 		}
 
 		startMeasurementTime = endMeasurementTime - (interval - 1000);
