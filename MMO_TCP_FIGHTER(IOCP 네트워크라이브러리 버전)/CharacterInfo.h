@@ -35,6 +35,9 @@ struct CharacterInfo
 
 	SectorPos curPos;
 	SectorPos oldPos;
+
+	DWORD lastRecvTime;
+	SRWLOCK srwCharacterLock;
 };
 
 #endif // !__CHARACTERINFO_H__
