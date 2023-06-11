@@ -13,21 +13,21 @@
 
 #define _Log(logLvl, fmt, ...)											\
 do {																	\
-	tm timeInfo;														\
-	time_t timestamp;													\
+	tm __netserverLogTimeInfo;														\
+	time_t __netserverLogTimestamp;													\
 	if (logLvl >= __gLogLvl)											\
 	{																	\
-		timestamp = time(nullptr);										\
-		localtime_s(&timeInfo, &timestamp);								\
+		__netserverLogTimestamp = netserver::log::_crt_time(nullptr);					\
+		localtime_s(&__netserverLogTimeInfo, &__netserverLogTimestamp);								\
 		StringCchPrintf(__gLogBuffer, 2048								\
 			, L"%-8s [%02d/%02d/%04d %02d:%02d:%02d] [%hs:%hs:%d] " fmt	\
 			, __strLogLvl[logLvl]										\
-			, timeInfo.tm_mon + 1										\
-			, timeInfo.tm_mday											\
-			, timeInfo.tm_year + 1900									\
-			, timeInfo.tm_hour											\
-			, timeInfo.tm_min											\
-			, timeInfo.tm_sec											\
+			, __netserverLogTimeInfo.tm_mon + 1										\
+			, __netserverLogTimeInfo.tm_mday											\
+			, __netserverLogTimeInfo.tm_year + 1900									\
+			, __netserverLogTimeInfo.tm_hour											\
+			, __netserverLogTimeInfo.tm_min											\
+			, __netserverLogTimeInfo.tm_sec											\
 			, __FILENAME__												\
 			, __func__													\
 			, __LINE__													\
@@ -41,4 +41,16 @@ extern __declspec(thread) wchar_t __gLogBuffer[2048 + 1];
 extern const wchar_t* __strLogLvl[3];
 
 void Log(const wchar_t* strLog, int logLvl);
+
+namespace netserver
+{
+	namespace log
+	{
+		static inline time_t _crt_time(time_t* _time)
+		{
+			return time(_time);
+		}
+	}
+}
+
 #endif

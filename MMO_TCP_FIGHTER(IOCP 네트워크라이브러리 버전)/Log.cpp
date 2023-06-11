@@ -8,3 +8,4 @@ void Log(const wchar_t* strLog, int logLvl)
 {
 	wprintf_s(L"%s\n", strLog);
 }
+
