@@ -1,4 +1,4 @@
-#define _WINSOCKAPI_
+ï»¿#define _WINSOCKAPI_
 #include <windows.h>
 #include <stdio.h>
 #include <time.h>
@@ -44,13 +44,13 @@ static LARGE_INTEGER end;
 void BeginProfile(const WCHAR* tag)
 {
 	//-------------------------------------------------------------------
-	//ÇÁ·ÎÆÄÀÏ¸µÇÏ·Á´Â ±¸°£ÀÇ ½ÃÀÛÀ» ¾Ë¸®´Â ÇÔ¼öÀÌ´Ù.
-	//ÀÎÀÚ·Î ¹ÞÀº ÅÂ±×¸íÀ» °¡Áö°í gProfileSample ¹è¿­À» ¼øÈ¸ÇÏ¸é¼­
-	//ÀÎÀÚ·Î ¹ÞÀº ÅÂ±×°¡ µî·ÏµÇ¾îÀÖ´ÂÁö È®ÀÎÇÑ´Ù.
-	//ÅÂ±×¸íÀÌ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é, gProfileSampleÀÇ ºóÀÚ¸®¿¡ 
-	//ÇØ´ç ÅÂ±×¸¦ µî·ÏÇÑ´Ù.
-	//±×¸®°í QueryPerformanceCounter¸¦ È£ÃâÇÏ¿©
-	//ÇöÀç(ÃøÁ¤½ÃÀÛ ½ÃÁ¡)ÀÇ Å¸ÀÓ½ºÅÆÇÁ °ªÀ» ±¸ÇÑ´Ù.
+	//í”„ë¡œíŒŒì¼ë§í•˜ë ¤ëŠ” êµ¬ê°„ì˜ ì‹œìž‘ì„ ì•Œë¦¬ëŠ” í•¨ìˆ˜ì´ë‹¤.
+	//ì¸ìžë¡œ ë°›ì€ íƒœê·¸ëª…ì„ ê°€ì§€ê³  gProfileSample ë°°ì—´ì„ ìˆœíšŒí•˜ë©´ì„œ
+	//ì¸ìžë¡œ ë°›ì€ íƒœê·¸ê°€ ë“±ë¡ë˜ì–´ìžˆëŠ”ì§€ í™•ì¸í•œë‹¤.
+	//íƒœê·¸ëª…ì´ ì¡´ìž¬í•˜ì§€ ì•Šìœ¼ë©´, gProfileSampleì˜ ë¹ˆìžë¦¬ì— 
+	//í•´ë‹¹ íƒœê·¸ë¥¼ ë“±ë¡í•œë‹¤.
+	//ê·¸ë¦¬ê³  QueryPerformanceCounterë¥¼ í˜¸ì¶œí•˜ì—¬
+	//í˜„ìž¬(ì¸¡ì •ì‹œìž‘ ì‹œì )ì˜ íƒ€ìž„ìŠ¤íƒ¬í”„ ê°’ì„ êµ¬í•œë‹¤.
 	//-------------------------------------------------------------------
 	int i;
 	for (i = 0; i < sampleCnt; ++i)
@@ -73,12 +73,12 @@ void BeginProfile(const WCHAR* tag)
 void EndProfile(const WCHAR* tag)
 {
 	//-------------------------------------------------------------------
-	//ÇÁ·ÎÆÄÀÏ¸µÇÏ·Á´Â ±¸°£ÀÇ Á¾·á¸¦ ¾Ë¸®´Â ÇÔ¼öÀÌ´Ù.
-	//ÀÎÀÚ·Î ¹ÞÀº ÅÂ±×¸íÀ» °¡Áö°í gProfileSample ¹è¿­À» ¼øÈ¸ÇÑ´Ù.
-	//ÅÂ±×¸íÀÌ µî·ÏµÈ À§Ä¡¸¦ Ã£Àº ´ÙÀ½¿¡
-	//ÇÁ·ÎÆÄÀÏ¸µÇÏ·Á´Â ±¸°£ÀÇ ½ÇÇà È½¼ö¸¦ Ä«¿îÆ®ÇÏ°í
-	//ÃøÁ¤ÇÑ ½Ã°£°ªÀ» ÃÑ ½Ã°£°ª¿¡ ´©Àû½ÃÅ²´Ù.
-	//°¡Àå ´À¸°ÃøÁ¤°ª, °¡Àå ºü¸¥ ÃøÁ¤°ªÀ» ÀúÀåÇÑ´Ù.
+	//í”„ë¡œíŒŒì¼ë§í•˜ë ¤ëŠ” êµ¬ê°„ì˜ ì¢…ë£Œë¥¼ ì•Œë¦¬ëŠ” í•¨ìˆ˜ì´ë‹¤.
+	//ì¸ìžë¡œ ë°›ì€ íƒœê·¸ëª…ì„ ê°€ì§€ê³  gProfileSample ë°°ì—´ì„ ìˆœíšŒí•œë‹¤.
+	//íƒœê·¸ëª…ì´ ë“±ë¡ëœ ìœ„ì¹˜ë¥¼ ì°¾ì€ ë‹¤ìŒì—
+	//í”„ë¡œíŒŒì¼ë§í•˜ë ¤ëŠ” êµ¬ê°„ì˜ ì‹¤í–‰ íšŸìˆ˜ë¥¼ ì¹´ìš´íŠ¸í•˜ê³ 
+	//ì¸¡ì •í•œ ì‹œê°„ê°’ì„ ì´ ì‹œê°„ê°’ì— ëˆ„ì ì‹œí‚¨ë‹¤.
+	//ê°€ìž¥ ëŠë¦°ì¸¡ì •ê°’, ê°€ìž¥ ë¹ ë¥¸ ì¸¡ì •ê°’ì„ ì €ìž¥í•œë‹¤.
 	//-------------------------------------------------------------------
 	QueryPerformanceCounter(&end);
 	int i;
@@ -143,10 +143,10 @@ void EndProfile(const WCHAR* tag)
 bool SaveProfileSampleToText(const WCHAR* szFileName)
 {
 	//-----------------------------------------------
-	//gProfileSample ¹è¿­¿¡ ÀúÀåµÈ ÃøÁ¤ °ªµéÀ»
-	//ÅØ½ºÆ® ÆÄÀÏ·Î ÀúÀåÇÑ´Ù.
-	//ÅÂ±×¸í, Æò±Õ ÃøÁ¤½Ã°£, ÃÖ¼Ò ÃøÁ¤½Ã°£, ÃÖ´ë ÃøÁ¤½Ã°£, ÃøÁ¤È½¼ö
-	//·Î Ç¥¸¦ ¸¸µé¾î¼­ ÀúÀåÇÑ´Ù.
+	//gProfileSample ë°°ì—´ì— ì €ìž¥ëœ ì¸¡ì • ê°’ë“¤ì„
+	//í…ìŠ¤íŠ¸ íŒŒì¼ë¡œ ì €ìž¥í•œë‹¤.
+	//íƒœê·¸ëª…, í‰ê·  ì¸¡ì •ì‹œê°„, ìµœì†Œ ì¸¡ì •ì‹œê°„, ìµœëŒ€ ì¸¡ì •ì‹œê°„, ì¸¡ì •íšŸìˆ˜
+	//ë¡œ í‘œë¥¼ ë§Œë“¤ì–´ì„œ ì €ìž¥í•œë‹¤.
 	//-----------------------------------------------
 	tm TM;
 	time_t currentTime;
@@ -190,7 +190,7 @@ bool SaveProfileSampleToText(const WCHAR* szFileName)
 
 	for (int i = 0; i < sampleCnt; ++i)
 	{
-		fprintf_s(file, "%-50ws |%13.4Lf¥ìs |%13.4Lf¥ìs |%13.4Lf¥ìs |%13lld |\n"
+		fprintf_s(file, "%-50ws |%13.4LfÎ¼s |%13.4LfÎ¼s |%13.4LfÎ¼s |%13lld |\n"
 			, gProfileSample[i].szName
 			, ((long double)((gProfileSample[i].iTotalTime - gProfileSample[i].iMaxTime[0] - gProfileSample[i].iMaxTime[1] - gProfileSample[i].iMinTime[0] - gProfileSample[i].iMinTime[1]) * 1000000)
 				/ (long double)lpFrequency.QuadPart) / ((long double)gProfileSample[i].iCallCount - INVALID_CALL_COUNT)

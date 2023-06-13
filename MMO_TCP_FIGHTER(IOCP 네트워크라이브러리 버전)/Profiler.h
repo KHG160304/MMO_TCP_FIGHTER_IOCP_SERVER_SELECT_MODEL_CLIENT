@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef __PROFILER_H__
 #define __PROFILER_H__
 #define PROFILE
